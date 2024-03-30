@@ -1,0 +1,201 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+($status\n)\
+[](color_mantle)\
+$os\
+$username\
+[ ](bg:color_mantle fg:color_mantle)\
+${custom.is_folder_config}\
+$directory\
+[ ](fg:color_mantle bg:color_mantle)\
+$git_branch\
+$git_status\
+$git_commit\
+[ ](fg:color_mantle bg:color_mantle)\
+$c\
+${custom.cpp-gcc}\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$lua\
+$python\
+$cmake\
+$docker_context\
+\
+$meson\
+${env_var.shell}\
+$shell\
+${custom.nvim}\
+[ ](fg:color_mantle bg:color_mantle)\
+$cmd_duration\
+[ ](fg:color_mantle)\
+$line_break$character"""
+
+add_newline = true
+
+palette = 'catppuccin_frappe'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[palettes.catppuccin_frappe]
+color_rosewater = "#f2d5cf"
+color_flamingo =  "#eebebe"
+color_pink =      "#f4b8e4"
+color_mauve =     "#ca9ee6"
+color_red =       "#e78284"
+color_maroon =    "#ea999c"
+color_peach =     "#ef9f76"
+color_yellow =    "#e5c890"
+color_green =     "#a6d189"
+color_teal =      "#81c8be"
+color_sky =       "#99d1db"
+color_sapphire =  "#85c1dc"
+color_blue =      "#8caaee"
+color_lavender =  "#babbf1"
+color_text = "#c6d0f5"
+color_subtext1 = "#b5bfe2"
+color_subtext0 = "#a5adce"
+color_overlay2 = "#949cbb"
+color_overlay1 = "#838ba7"
+color_overlay0 = "#737994"
+color_surface2 = "#626880"
+color_surface1 = "#51576d"
+color_surface0 = "#414559"
+color_base = "#303446"
+color_mantle = "#292c3c"
+color_crust = "#232634"
+
+[os]
+disabled = true
+style = "bg:color_mantle fg:color_text"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+
+
+[directory]
+style = "fg:color_overlay2 bg:color_crust"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_text"
+format = '[[ $symbol $branch ](fg:color_red bg:color_mantle)]($style)'
+
+[git_status]
+style = "bg:color_text"
+format = '[[($all_status$ahead_behind )](fg:color_red bg:color_mantle)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[java]
+symbol = " "
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_subtext1"
+format = '[[ $symbol( $version) ](fg:color_lavender bg:color_mantle)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color_surface2"
+format = '[[ $symbol( $context) ](fg:color_blue bg:color_mantle)]($style)'
+
+[conda]
+style = "bg:color_surface2"
+format = '[[ $symbol( $environment) ](fg:color_green bg:color_mantle)]($style)'
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:color_text"
+format = '[[  $time ](fg:color_subtext1 bg:color_mantle)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:color_green)'
+error_symbol = '[](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_mauve)'
+vimcmd_replace_symbol = '[](bold fg:color_mauve)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
